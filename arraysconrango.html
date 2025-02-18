@@ -1,17 +1,39 @@
-   <script>
-//funcion para crear un areglo 
-        function CrearArregloConRango(inicio,fin) {
-        let arreglo=[];
-        for(i=inicio;i<=fin;i++){
-        	arreglo.push(i);
-        }
-        
-    		return arreglo;
-                 
- 
-        }
-        
-        // Ejemplos de uso:
-        console.log(CrearArregloConRango(4, 7));  // [4, 5, 6, 7]
-        console.log(CrearArregloConRango(-4, 7)); // [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
-    </script>
+<html>
+   <body>
+      <h1>Desafio de arreglos con rango</h1>
+      <div id="respuesta"></div>
+      <script>
+   //funcion para crear un areglo 
+           function CrearArregloConRango(inicio,fin) {
+           let arreglo=[];
+            if(isNaN(inicio)||isNaN(fin||inicio === undefined || fin === undefined)){
+                   document.getElementById("respuesta").innerHTML = "<p style='color: red;'>Debes ingresar números válidos mayores a 0.</p>";
+                   return;
+                   }
+                    // se Convierte a número en caso de que sea string
+                   inicio = Number(inicio);
+                   fin = Number(fin);
+   
+               	if (inicio > fin) {
+                   document.getElementById("respuesta").innerHTML = "<p style='color: red;'>El valor de inicio debe ser menor o igual al valor de fin</p>";
+               	return [];
+               	}  
+              
+           for(i=inicio;i<=fin;i++){
+           	arreglo.push(i);
+           }
+           
+       		return arreglo;
+                    
+    
+           }
+           
+           // Ejemplos de uso:
+           console.log(CrearArregloConRango(4, 7));  // [4, 5, 6, 7]
+           console.log(CrearArregloConRango(-4, 7)); // [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
+           console.log(CrearArregloConRango(10, 5)); // [] y muestra mensaje
+           console.log(CrearArregloConRango("3", "8")); // [3, 4, 5, 6, 7, 8]
+          console.log(CrearArregloConRango()); // [] y muestra mensaje 
+      </script>
+	</body>
+</html>
